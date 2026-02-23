@@ -21,30 +21,16 @@ if "is_logged_in" not in st.session_state:
     st.session_state["is_logged_in"] = False
 if "user" not in st.session_state:
     st.session_state["user"] = None
-
-# ซ่อนเมนูอัตโนมัติ (app/book page/...)
-# ✅ ซ่อน Multi-page auto nav (Streamlit sidebar pages list) + fallback หลาย selector
+    
+st.markdown("---")
 st.markdown("""
-<style>
-/* 1) ตัวหลัก: Sidebar navigation ของ multipage */
-section[data-testid="stSidebarNav"] {display: none !important;}
-
-/* 2) fallback: เผื่อ DOM เปลี่ยนชื่อ/โครง */
-div[data-testid="stSidebarNav"] {display: none !important;}
-nav[data-testid="stSidebarNav"] {display: none !important;}
-
-/* 3) fallback เพิ่มเติม: ซ่อนหัวข้อ Pages / รายการหน้า (บางเวอร์ชัน) */
-div[data-testid="stSidebarNavItems"] {display: none !important;}
-div[data-testid="stSidebarNavSeparator"] {display: none !important;}
-
-/* 4) fallback สุดท้าย: ถ้า Streamlit render เป็น <ul>/<li> ใน sidebar */
-aside ul:has(a[href*="?page="]) {display: none !important;}
-aside ul:has(a[href*="/book_page"]) {display: none !important;}
-aside ul:has(a[href*="/member_page"]) {display: none !important;}
-aside ul:has(a[href*="/borrow_page"]) {display: none !important;}
-</style>
+<div style='text-align:left; font-size:14px; margin-top:20px;'>
+👩‍🎓 <b>ผู้จัดทำ :</b> นางสาวภัคจิรา ชูรัตน์<br>
+🆔 <b>รหัสนักศึกษา :</b> 6760259104<br>
+📚 <b>หมู่เรียน :</b> ว.6707T
+</div>
 """, unsafe_allow_html=True)
-
+   
 # =========================
 # UI
 # =========================
